@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "standard-with-typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+       "warn",
+       {
+         "argsIgnorePattern": "^_",
+         "varsIgnorePattern": "^_",
+         "caughtErrorsIgnorePattern": "^_"
+       }
+     ],
+    "@typescript-eslint/semi": [2, "always"],
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/method-signature-style": "off"
+   
+  }
 }
