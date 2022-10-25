@@ -1,9 +1,9 @@
-import BasicLayout from '../styles/globals';
+import Header from '../components/Header';
 
 export default function Home() {
   return (
-    <BasicLayout>
-      <p>hello</p>
-    </BasicLayout>
+    <>
+      <Header />
+    </>
   );
 }
