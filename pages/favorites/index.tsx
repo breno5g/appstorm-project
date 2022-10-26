@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import UserCard from '../../components/UserCard';
+import FavoriteCard from '../../components/FavoriteCard';
 import Header from '../../components/Header';
 import { IFavorite } from '../../interfaces/favorite';
 import { IStore } from '../../interfaces/redux';
@@ -20,7 +20,7 @@ function Favorites() {
       <Header/>
       <Container>
         {users.map((user: IFavorite) => (
-          <UserCard key={user.username} data={user}/>
+          <FavoriteCard key={user.username} data={user}/>
         ))}
       </Container>
     </>

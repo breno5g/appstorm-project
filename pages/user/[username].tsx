@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import { IUser } from '../../interfaces/user';
 import axios from "axios";
 import { IRepositories } from '../../interfaces/repositories';
+import { Main } from '../_style';
+import { Aside, Container } from './_styles';
 
 interface IUserProps {
   repositories: IRepositories,
@@ -14,6 +16,10 @@ function User({repositories, user}: IUserProps) {
   return (
     <>
       <Header/>
+      <Main>
+        <Container></Container>
+        <Aside></Aside>
+      </Main>
     </>
   );
 }
