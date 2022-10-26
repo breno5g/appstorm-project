@@ -1,15 +1,18 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import User from './[id]';
+import { useSelector } from 'react-redux';
+import User from './[username]';
 
 function Index() {
   const router = useRouter();
+  const selector = useSelector((state: any) => state.user);
   
   useEffect(() => {
-    if (!router.query.id) {
+    if (!router.query.username) {
       router.replace("/");  
     }
-  }, [router]);
+    
+  }, [router, selector]);
 
   return (
     <User />
