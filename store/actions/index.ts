@@ -1,4 +1,5 @@
 import { IFavorite } from "../../interfaces/favorite";
+import { IUser } from "../../interfaces/user";
 
 // Favorites Types
 const ADD_FAVORITE = 'ADD_FAVORITE';
@@ -22,10 +23,10 @@ const loadStore = () => ({
 // User Types
 const ADD_USER = 'ADD_USER';
 
-const addUser = (user: any) => {
-    type: ADD_USER;
-    payload: user;
-};
+const addUser = (user: IUser) => ({
+    type: ADD_USER,
+    payload: user
+});
 
 export {
     ADD_FAVORITE,
