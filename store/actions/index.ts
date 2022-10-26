@@ -19,11 +19,21 @@ const loadStore = () => ({
     type: LOAD_STORE
 });
 
+// User Types
+const ADD_USER = 'ADD_USER';
+
+const addUser = (user: any) => {
+    type: ADD_USER;
+    payload: user;
+};
+
 export {
     ADD_FAVORITE,
     REMOVE_FAVORITE,
     LOAD_STORE,
+    ADD_USER,
     addFavorite,
     removeFavorite,
-    loadStore
+    loadStore,
+    addUser
 };
