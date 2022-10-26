@@ -8,6 +8,9 @@ export const Form = styled.form`
     width: 400px;
     padding: 1rem;
     font-size: 1.2rem;
+    border-radius: 0.25rem;
+    border: none;
+    box-shadow: 1px 2px #00000030;
   }
 
   button {
