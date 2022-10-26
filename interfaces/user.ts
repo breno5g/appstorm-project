@@ -4,5 +4,6 @@ export interface IUser {
   avatar_url: string,
   following: number,
   followers: number,
-  bio: string
+  bio: string,
+  url: string
 }

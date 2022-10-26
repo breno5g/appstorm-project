@@ -21,3 +21,19 @@ export const FollowContainer = styled.div`
   display: flex;
   gap: 10px;
 `;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+`;
