@@ -1,21 +1,16 @@
 import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
 import Header from '../../components/Header';
 import { IUser } from '../../interfaces/user';
 import axios from "axios";
+import { IRepositories } from '../../interfaces/repositories';
 
-function User({repositories}: any) {
-  const router = useRouter();
-  const selector = useSelector(({user}: {user: IUser}) => user);
-  
-  useEffect(() => {
-    if (!selector) {
-      router.replace("/");  
-    }
-  }, []);
-  
+interface IUserProps {
+  repositories: IRepositories,
+  user: IUser
+}
+
+function User({repositories, user}: IUserProps) {
   return (
     <>
       <Header/>
@@ -26,10 +21,12 @@ function User({repositories}: any) {
 export default User;
 
 export const getServerSideProps: GetServerSideProps = async ({query}) => {
-  const {data} = await axios.get(`https://api.github.com/users/${query.username}/repos`);
+  const {data: repositories} = await axios.get(`https://api.github.com/users/${query.username}/repos`);
+  const {data: user} = await axios.get(`https://api.github.com/users/${query.username}`);
   return {
     props: {
-      repositories: data
+      user,
+      repositories
     }
   };
 };
