@@ -1,7 +1,7 @@
 export interface IUser {
   login: string,
   name: string,
-  image: string,
+  avatar_url: string,
   following: number,
   followers: number,
   bio: string

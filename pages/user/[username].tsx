@@ -6,6 +6,7 @@ import axios from "axios";
 import { IRepositories } from '../../interfaces/repositories';
 import { Main } from '../_style';
 import { Aside, Container } from './_styles';
+import UserCard from '../../components/UserCard';
 
 interface IUserProps {
   repositories: IRepositories,
@@ -17,7 +18,9 @@ function User({repositories, user}: IUserProps) {
     <>
       <Header/>
       <Main>
-        <Container></Container>
+        <Container>
+          <UserCard data={user}/>
+        </Container>
         <Aside></Aside>
       </Main>
     </>
