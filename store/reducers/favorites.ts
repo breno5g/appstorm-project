@@ -1,3 +1,4 @@
+import { IFavoriteReducer } from "../../interfaces/redux";
 import { ADD_FAVORITE, REMOVE_FAVORITE } from "../actions";
 
 const initialState = [
@@ -8,7 +9,7 @@ const initialState = [
   }
 ];
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: IFavoriteReducer) => {
   switch (action.type) {
     case ADD_FAVORITE:
       return { ...state, ...action.payload };

@@ -1,13 +1,24 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import Card from '../../components/Card';
 import Header from '../../components/Header';
+import { IFavorite } from '../../interfaces/favorite';
+import { IStore } from '../../interfaces/redux';
+import { Container } from './_style';
 
-function index() {
+function Favorites() {
+  const users = useSelector((state: IStore) => state.favorites);
+
   return (
     <>
       <Header/>
-      <h1>Favorites Page</h1>
+      <Container>
+        {users.map((user: IFavorite) => (
+          <Card key={user.username} data={user}/>
+        ))}
+      </Container>
     </>
   );
 }
 
-export default index;
+export default Favorites;
