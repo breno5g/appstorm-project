@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Header from '../components/Header';
+import SearchForm from '../components/SearchForm';
 import { loadStore } from '../store/actions';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <SearchForm />
     </>
   );
 }
