@@ -11,20 +11,29 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: box-shadow 0.2s;
+  position: relative;
   
-  cursor: pointer;
-
   gap: 0.5rem;
-
-  &:hover {
-    box-shadow: 0 0 10px 10px #00000040;
-  }
 
   img {
     width: 150px;
     height: 150px;
     border-radius: 0.5rem;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    margin: auto;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.1;
+    }
   }
 `;
 
