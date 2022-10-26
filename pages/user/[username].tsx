@@ -4,12 +4,12 @@ import Header from '../../components/Header';
 import { IUser } from '../../interfaces/user';
 import axios from "axios";
 import { IRepositories } from '../../interfaces/repositories';
-import { Main } from '../_style';
-import { Aside, Container } from './_styles';
+import { Main, Aside, Container } from './_styles';
 import UserCard from '../../components/UserCard';
+import RepoCard from '../../components/RepoCard';
 
 interface IUserProps {
-  repositories: IRepositories,
+  repositories: IRepositories[],
   user: IUser
 }
 
@@ -21,7 +21,11 @@ function User({repositories, user}: IUserProps) {
         <Container>
           <UserCard data={user}/>
         </Container>
-        <Aside></Aside>
+        <Aside>
+          {repositories.map((repo) => (
+            <RepoCard key={repo.html_url} data={repo}/>
+          ))}
+        </Aside>
       </Main>
     </>
   );
