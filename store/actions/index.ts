@@ -9,9 +9,9 @@ const addFavorite = (user: IFavorite) => ({
     payload: user
 });
 
-const deleteFavorite = (user: IFavorite) => ({
+const removeFavorite = (user: IFavorite) => ({
     type: REMOVE_FAVORITE,
     payload: user
 });
 
-export {ADD_FAVORITE, REMOVE_FAVORITE, addFavorite, deleteFavorite};
+export {ADD_FAVORITE, REMOVE_FAVORITE, addFavorite, removeFavorite};

@@ -5,13 +5,20 @@ import Link from 'next/link';
 import { IFavorite } from '../../interfaces/favorite';
 
 import {AiFillHeart} from "react-icons/ai";
+import { useDispatch } from 'react-redux';
+import { removeFavorite } from '../../store/actions';
 
 function Card({data}: {data: IFavorite}) {
+  const dispatch = useDispatch();
+
+  const handleRemoveFromFavorite = () => {
+    dispatch(removeFavorite(data));
+  };
 
   return (
     <Container>
       <h1>{data.username}</h1>
-      <button className='favorite-btn'><AiFillHeart /></button>
+      <button className='favorite-btn' onClick={handleRemoveFromFavorite}><AiFillHeart /></button>
       <Image src={data.image} alt={data.username} width={500} height={500}/>
       <ButtonsContainer>
         <Link href={`/user/${data.username}`}>Repos</Link>
