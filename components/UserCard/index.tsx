@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { IFavorite } from '../../interfaces/favorite';
-import { IStore } from '../../interfaces/redux';
 import { IUser } from "../../interfaces/user";
-import { addFavorite, loadStore, removeFavorite } from '../../store/actions';
+import { addFavorite, removeFavorite } from '../../store/actions';
 import { Container, FollowContainer, Header } from './styles';
 
 interface UserCardProps {
@@ -14,7 +13,6 @@ interface UserCardProps {
 
 function UserCard({ data: {avatar_url, login,bio,followers,following,name, url} }: UserCardProps) {
   const dispatch = useDispatch();
-  const users = useSelector((state: IStore) => state.favorites);
 
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 

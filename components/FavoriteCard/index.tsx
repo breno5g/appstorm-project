@@ -8,7 +8,11 @@ import {AiFillHeart} from "react-icons/ai";
 import { useDispatch } from 'react-redux';
 import { removeFavorite } from '../../store/actions';
 
-function FavoriteCard({data}: {data: IFavorite}) {
+interface FavoriteCardProps {
+  data: IFavorite
+}
+
+function FavoriteCard({data}: FavoriteCardProps) {
   const dispatch = useDispatch();
 
   const handleRemoveFromFavorite = () => {
