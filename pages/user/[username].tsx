@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import { IUser } from '../../interfaces/user';
 import axios from "axios";
 import { IRepositories } from '../../interfaces/repositories';
-import { Main, Aside, Container } from './_styles';
+import Main, {  Aside, Container } from './_styles';
 import UserCard from '../../components/UserCard';
 import RepoCard from '../../components/RepoCard';
 

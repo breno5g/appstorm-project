@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import SearchForm from '../components/SearchForm';
 import { loadStore } from '../store/actions';
-import { Main } from './_style';
+import Main  from './_style';
 
 export default function Home() {
   const dispatch = useDispatch();

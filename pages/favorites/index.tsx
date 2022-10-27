@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import { IFavorite } from '../../interfaces/favorite';
 import { IStore } from '../../interfaces/redux';
 import { loadStore } from '../../store/actions';
-import { Container } from './_style';
+import Container  from './_style';
 
 function Favorites() {
   const users = useSelector((state: IStore) => state.favorites);
