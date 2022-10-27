@@ -11,9 +11,16 @@ import RepoCard from '../../components/RepoCard';
 interface IUserProps {
   repositories: IRepositories[],
   user: IUser
+  error: string
 }
 
-function User({repositories, user}: IUserProps) {
+function User({repositories, user, error}: IUserProps) {
+  if (error) return (
+    <>
+      <Header />
+      <h1 style={{textAlign: "center"}}>{error}</h1>
+    </>
+  );
   return (
     <>
       <Header/>
@@ -34,12 +41,20 @@ function User({repositories, user}: IUserProps) {
 export default User;
 
 export const getServerSideProps: GetServerSideProps = async ({query}) => {
-  const {data: repositories} = await axios.get(`https://api.github.com/users/${query.username}/repos`);
-  const {data: user} = await axios.get(`https://api.github.com/users/${query.username}`);
-  return {
-    props: {
-      user,
-      repositories
-    }
-  };
+  try {
+    const {data: repositories} = await axios.get(`https://api.github.com/users/${query.username}/repos`);
+    const {data: user} = await axios.get(`https://api.github.com/users/${query.username}`);
+    return {
+      props: {
+        user,
+        repositories
+      }
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: "Usuário não encontrado"
+      }
+    };
+  }
 };
